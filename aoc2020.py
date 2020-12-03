@@ -22,7 +22,7 @@ def main():
     args = AocArgs().parse_args()
     try:
         with open(args.file) as file:
-            print(daySelector(args.day,file.read()))
+            daySelector(args.day,file.read())
 
     except KeyError as e:
         print(f'Day{e} solution not implemented yet')
