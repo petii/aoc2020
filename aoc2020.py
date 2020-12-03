@@ -2,7 +2,7 @@ import argparse
 from sys import argv
 from tap import Tap
 
-from days import daySelector
+from aoc2020.dayselector import daySelector
 
 from typing import List, Optional
 
@@ -16,7 +16,7 @@ class AocArgs(Tap):
 
     def process_args(self):
         if self.file == None:
-            self.file = f'data/day{self.day}'
+            self.file = f'data/day{self.day}.txt'
 
 
 def main():

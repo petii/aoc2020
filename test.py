@@ -1,11 +1,11 @@
 import unittest
 
-import days
+from aoc2020.days import day1, day2, day3
 
 
 class TestDay1(unittest.TestCase):
     input = list(map(int, "1721 979 366 299 675 1456".split(' ')))
-    day = days.Day1(input)
+    day = day1.Solution(input)
 
     def test_pt1(self):
         expected = 514579
@@ -22,9 +22,9 @@ class TestDay2(unittest.TestCase):
     input = list(
         map(
             lambda line: line.strip(), """1-3 a: abcde
-            1-3 b: cdefg
-            2-9 c: ccccccccc""".split('\n')))
-    day = days.Day2(input)
+                                          1-3 b: cdefg
+                                          2-9 c: ccccccccc""".split('\n')))
+    day = day2.Solution(input)
 
     def test_pt1(self):
         expected = 2
@@ -34,6 +34,28 @@ class TestDay2(unittest.TestCase):
     def test_pt1(self):
         expected = 1
         result = self.day.part2()
+        self.assertEqual(expected, result)
+
+
+class TestDay3(unittest.TestCase):
+    input = list(
+        map(
+            lambda line: line.strip(), """..##.......
+                                          #...#...#..
+                                          .#....#..#.
+                                          ..#.#...#.#
+                                          .#...##..#.
+                                          ..#.##.....
+                                          .#.#.#....#
+                                          .#........#
+                                          #.##...#...
+                                          #...##....#
+                                          .#..#...#.#""".split('\n')))
+    day = day3.Solution(input)
+
+    def test_pt1(self):
+        expected = 7
+        result = self.day.part1()
         self.assertEqual(expected, result)
 
 
