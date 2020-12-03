@@ -26,8 +26,11 @@ def daySelector(day: int, fileContents: str):
     if day == 3:
         input = list(filter(lambda x: x != '', fileContents.split('\n')))
         solver = day3.Solution(input)
-        print('Solving day3 puzzle with the following input:', *input[:8],
-              '             ...', *input[-3:], sep="\n    ")
+        print('Solving day3 puzzle with the following input:',
+              *input[:8],
+              '             ...',
+              *input[-3:],
+              sep="\n    ")
         pt1 = solver.part1()
         # pt2 = solver.part2()
         print('  Part One: ', pt1[0])
