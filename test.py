@@ -19,7 +19,9 @@ class TestDay1(unittest.TestCase):
 
 
 class TestDay2(unittest.TestCase):
-    input = list(map(lambda line: line.strip(), """1-3 a: abcde
+    input = list(
+        map(
+            lambda line: line.strip(), """1-3 a: abcde
             1-3 b: cdefg
             2-9 c: ccccccccc""".split('\n')))
     day = days.Day2(input)
@@ -27,7 +29,12 @@ class TestDay2(unittest.TestCase):
     def test_pt1(self):
         expected = 2
         result = self.day.part1()
-        self.assertEqual(expected,result)
+        self.assertEqual(expected, result)
+
+    def test_pt1(self):
+        expected = 1
+        result = self.day.part2()
+        self.assertEqual(expected, result)
 
 
 if __name__ == "__main__":

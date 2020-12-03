@@ -37,7 +37,10 @@ class Day2:
     def part1(self) -> int:
         return len(list(filter(self.match, self.input)))
 
-    def match(self,line) -> bool:
+    def part2(self) -> int:
+        return len(list(filter(self.match2, self.input)))
+
+    def match(self, line) -> bool:
         policy = self.policy(line)
         password = self.password(line)
         count = password.count(policy['char'])
@@ -45,10 +48,21 @@ class Day2:
             return True
         return False
 
+    def match2(self, line) -> bool:
+        policy = self.policy(line)
+        password = self.password(line)
+        pos1 = policy['min'] - 1
+        pos2 = policy['max']
+        sub = password[pos1:pos2]
+        chars = sub[::len(sub) - 1]
+        if chars.count(policy['char']) == 1:
+            return True
+        return False
+
     def policy(self, line: str) -> Dict:
         policyPart = line.split(': ')[0].split(' ')
         character = policyPart[1]
-        occurences = list(map(int,policyPart[0].split('-')))
+        occurences = list(map(int, policyPart[0].split('-')))
         return {'char': character, 'min': occurences[0], 'max': occurences[1]}
 
     def password(self, line: str) -> str:
@@ -69,8 +83,9 @@ def daySelector(day: int, fileContents: str):
     if day == 2:
         input = list(filter(lambda x: x != '', fileContents.split('\n')))
         day = Day2(input)
-        print('Solving day1 puzzle with the following input:', *input[:2],
+        print('Solving day2 puzzle with the following input:', *input[:2],
               '...', input[-1])
         pt1 = day.part1()
-        # pt2 = day.part2()
+        pt2 = day.part2()
         print('  Part One: ', pt1)
+        print('  Part Two: ', pt2)
