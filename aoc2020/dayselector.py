@@ -1,6 +1,6 @@
 from pprint import pprint
 
-from .days import day1, day2
+from .days import day1, day2, day3
 
 
 def daySelector(day: int, fileContents: str):
@@ -23,3 +23,15 @@ def daySelector(day: int, fileContents: str):
         pt2 = solver.part2()
         print('  Part One: ', pt1)
         print('  Part Two: ', pt2)
+    if day == 3:
+        input = list(filter(lambda x: x != '', fileContents.split('\n')))
+        solver = day3.Solution(input)
+        print('Solving day3 puzzle with the following input:',
+              *input[:8],
+              '             ...',
+              *input[-3:],
+              sep="\n    ")
+        pt1 = solver.part1()
+        # pt2 = solver.part2()
+        print('  Part One: ', pt1[0])
+        # print('  Part Two: ', pt2)
