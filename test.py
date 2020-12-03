@@ -31,7 +31,7 @@ class TestDay2(unittest.TestCase):
         result = self.day.part1()
         self.assertEqual(expected, result)
 
-    def test_pt1(self):
+    def test_pt2(self):
         expected = 1
         result = self.day.part2()
         self.assertEqual(expected, result)
