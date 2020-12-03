@@ -1,8 +1,7 @@
 from pprint import pprint
+from typing import Callable, Dict
 
-from .days import day1, day2, day3
-
-from typing import Dict, Callable
+from days import day1, day2,day3
 
 dayDict: Dict[str, Callable] = {}
 
