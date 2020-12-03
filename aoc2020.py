@@ -1,14 +1,14 @@
 import argparse
 from sys import argv
-
-from typing import List
-from typing import Optional
-
 from tap import Tap
 
+from days import daySelector
+
+from typing import List, Optional
+
 class AocArgs(Tap):
-    day : int
-    file : Optional[str] = None
+    day: int
+    file: Optional[str] = None
 
     def configure(self):
         self.add_argument('day')
@@ -17,9 +17,16 @@ class AocArgs(Tap):
         if self.file == None:
             self.file = f'data/day{self.day}'
 
+
 def main():
-    print('main')
     args = AocArgs().parse_args()
-    
+    try:
+        with open(args.file) as file:
+            print(daySelector(args.day,file.read()))
+
+    except KeyError as e:
+        print(f'Day{e} solution not implemented yet')
+
+
 if __name__ == "__main__":
     main()
