@@ -21,7 +21,7 @@ class Solution:
     def part1(self) -> Tuple[int, int, int]:
         return self._part1(self.input, 2020)
 
-    def part2(self) -> Tuple[int,int,int,int]:
+    def part2(self) -> Tuple[int, int, int, int]:
         for index in range(0, len(self.input) - 2):
             current = self.input[index]
             rest: List[int] = self.input[index + 1:]

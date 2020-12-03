@@ -1,4 +1,5 @@
-from typing import List, Dict, Callable, Tuple
+from functools import reduce
+from typing import Callable, Dict, List, Tuple
 
 
 class Solution:
@@ -9,12 +10,20 @@ class Solution:
         self.input = input
         self.width = len(input[0])
 
-    def part1(self) -> Tuple[int, str]:
+    def path(self, left, down) -> str:
         line = "".join([
-            self.input[i][(i * 3) % self.width]
-            for i in range(0, len(self.input))
+            self.input[i * down][(i * left) % self.width]
+            for i in range(0,
+                           len(self.input) // down)
         ])
+        return line
+
+    def part1(self) -> Tuple[int, str]:
+        line = self.path(3, 1)
         return (line.count('#'), line)
 
-    def part2(self):
-        pass
+    def part2(self) -> int:
+        pathConfig = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
+        paths = map(lambda pair: self.path(*pair), pathConfig)
+        return reduce(lambda a, b: a * b,
+                      map(lambda path: path.count('#'), paths))
