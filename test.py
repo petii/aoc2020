@@ -58,6 +58,11 @@ class TestDay3(unittest.TestCase):
         result = self.day.part1()[0]
         self.assertEqual(expected, result)
 
+    def test_pt2(self):
+        expected = 336
+        result = self.day.part2()
+        self.assertEqual(expected, result)
+
 
 if __name__ == "__main__":
     unittest.main()

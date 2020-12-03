@@ -15,3 +15,6 @@ class Solution:
             for i in range(0, len(self.input))
         ])
         return (line.count('#'), line)
+
+    def part2(self):
+        pass

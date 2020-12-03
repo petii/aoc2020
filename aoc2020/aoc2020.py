@@ -2,7 +2,7 @@ import argparse
 from sys import argv
 from tap import Tap
 
-from aoc2020.dayselector import daySelector
+from .dayselector import daySelector
 
 from typing import List, Optional
 
