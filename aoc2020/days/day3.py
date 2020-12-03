@@ -10,7 +10,7 @@ class Solution:
         self.input = input
         self.width = len(input[0])
 
-    def path(self, left, down) -> str:
+    def path(self, left : int, down: int) -> str:
         line = "".join([
             self.input[i * down][(i * left) % self.width]
             for i in range(0,

@@ -6,13 +6,13 @@ from days import day1, day2,day3
 dayDict: Dict[str, Callable] = {}
 
 
-def registerday(function: Callable):
+def registerday(function: Callable) -> Callable:
     dayDict[function.__name__] = function
     return function
 
 
 @registerday
-def _day_1(contents: str):
+def _day_1(contents: str) -> None:
     input = list(map(int, filter(lambda x: x != '', contents.split('\n'))))
     solver = day1.Solution(input)
     print('Solving day1 puzzle with the following input:', *input[:10], '...',
@@ -24,7 +24,7 @@ def _day_1(contents: str):
 
 
 @registerday
-def _day_2(contents: str):
+def _day_2(contents: str) -> None:
     input = list(filter(lambda x: x != '', contents.split('\n')))
     solver = day2.Solution(input)
     print('Solving day2 puzzle with the following input:', *input[:2], '...',
@@ -36,7 +36,7 @@ def _day_2(contents: str):
 
 
 @registerday
-def _day_3(contents: str):
+def _day_3(contents: str) -> None:
     input = list(filter(lambda x: x != '', contents.split('\n')))
     solver = day3.Solution(input)
     print('Solving day3 puzzle with the following input:',
@@ -50,5 +50,5 @@ def _day_3(contents: str):
     print('  Part Two: ', pt2)
 
 
-def daySelector(day: int, fileContents: str):
+def daySelector(day: int, fileContents: str) -> None:
     dayDict[f'_day_{day}'](fileContents)

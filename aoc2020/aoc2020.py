@@ -2,25 +2,28 @@ from typing import List, Optional
 
 from tap import Tap
 
-from aoc2020.dayselector import daySelector
+from dayselector import daySelector
 
 
 class AocArgs(Tap):
     day: int
     file: Optional[str] = None
 
-    def configure(self):
-        self.add_argument('day')
+    def configure(self) -> None:
+        self.add_argument('day', help='which day [1-24]')
+        self.add_argument('-f',
+                          '--file',
+                          help='input file, defaults to data/day<day>.txt')
 
-    def process_args(self):
+    def process_args(self) -> None:
         if self.file == None:
             self.file = f'data/day{self.day}.txt'
 
 
-def main():
+def main() -> None:
     args = AocArgs().parse_args()
     try:
-        with open(args.file) as file:
+        with open(args.file) as file:  # type: ignore
             daySelector(args.day, file.read())
 
     except KeyError as e:

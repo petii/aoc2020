@@ -4,7 +4,7 @@ from typing import List, Dict, Callable, Tuple
 class Solution:
     input: List[str]
 
-    def __init__(self, input):
+    def __init__(self, input : List[str]):
         self.input = input
 
     def part1(self) -> int:
@@ -13,7 +13,7 @@ class Solution:
     def part2(self) -> int:
         return len(list(filter(self.match2, self.input)))
 
-    def match(self, line) -> bool:
+    def match(self, line : str) -> bool:
         policy = self.policy(line)
         password = self.password(line)
         count = password.count(policy['char'])
@@ -21,7 +21,7 @@ class Solution:
             return True
         return False
 
-    def match2(self, line) -> bool:
+    def match2(self, line: str) -> bool:
         policy = self.policy(line)
         password = self.password(line)
         pos1 = policy['min'] - 1
