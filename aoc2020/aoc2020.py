@@ -19,9 +19,10 @@ class AocArgs(Tap):
         if self.day != None and self.file == None:
             self.file = f'data/day{self.day}.txt'
 
-def run(day : int, fileName : str) -> None:
+def run(day : int, fileName : str) -> int:
     with open(fileName) as file:
         daySelector(day, file.read())
+    return 1
 
 def main() -> None:
     args = AocArgs().parse_args()
@@ -29,7 +30,7 @@ def main() -> None:
         if args.day == None:
             [run(x, f'data/day{x}.txt') for x in range(1,32)]
         try:
-            run(args.day, args.file)
+            run(args.day, args.file) # type: ignore
         except FileNotFoundError as e:
             print(e)
 

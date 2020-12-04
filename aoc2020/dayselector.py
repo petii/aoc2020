@@ -1,13 +1,13 @@
 from pprint import pprint
 from typing import Callable, Dict
 
-from days import day1, day2,day3
+from days import day1, day2, day3, day4
 
-dayDict: Dict[str, Callable] = {}
+_dayDict: Dict[str, Callable] = {}
 
 
 def registerday(function: Callable) -> Callable:
-    dayDict[function.__name__] = function
+    _dayDict[function.__name__] = function
     return function
 
 
@@ -50,5 +50,13 @@ def _day_3(contents: str) -> None:
     print('  Part Two: ', pt2)
 
 
+@registerday
+def _day_4(contents: str) -> None:
+    input = contents.split('\n\n')
+    solver = day4.Solution(input)
+    print('Solving day4 puzzle')
+    print('  Part One: ', solver.part1())
+
+
 def daySelector(day: int, fileContents: str) -> None:
-    dayDict[f'_day_{day}'](fileContents)
+    _dayDict[f'_day_{day}'](fileContents)
