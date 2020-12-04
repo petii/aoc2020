@@ -6,28 +6,37 @@ from dayselector import daySelector
 
 
 class AocArgs(Tap):
-    day: int
+    day: Optional[int] = None
     file: Optional[str] = None
 
     def configure(self) -> None:
-        self.add_argument('day', help='which day [1-24]')
+        self.add_argument('-d','--day', help='which day [1-24]')
         self.add_argument('-f',
                           '--file',
                           help='input file, defaults to data/day<day>.txt')
 
     def process_args(self) -> None:
-        if self.file == None:
+        if self.day != None and self.file == None:
             self.file = f'data/day{self.day}.txt'
 
+def run(day : int, fileName : str) -> None:
+    with open(fileName) as file:
+        daySelector(day, file.read())
 
 def main() -> None:
     args = AocArgs().parse_args()
     try:
-        with open(args.file) as file:  # type: ignore
-            daySelector(args.day, file.read())
+        if args.day == None:
+            [run(x, f'data/day{x}.txt') for x in range(1,32)]
+        try:
+            run(args.day, args.file)
+        except FileNotFoundError as e:
+            print(e)
 
     except KeyError as e:
-        print(f'Day{e} solution not implemented yet')
+        print(f'{e} solution not implemented yet')
+    except FileNotFoundError:
+        pass
 
 
 if __name__ == "__main__":
