@@ -61,3 +61,5 @@ ecl:blu byr:1944 eyr:2021 pid:093154719""".split('\n\n')
 day5input = """BFFFBBFRRR
 FFFBBBFRRR
 BBFFBBFRLL""".split('\n')
+
+day5pairs = list(zip(day5input, [567, 119, 820]))

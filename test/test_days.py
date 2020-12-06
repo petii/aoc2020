@@ -65,6 +65,10 @@ class TestDay4(unittest.TestCase):
 class TestDay5(unittest.TestCase):
     day = day5.Solution(testinputs.day5input)
 
+    def test_seatId(self):
+        for input, expected in testinputs.day5pairs:
+            self.assertEqual(expected, day5.seatId(input))
+
     def test_pt1(self) -> None:
         expected = 820
         result = self.day.part1()

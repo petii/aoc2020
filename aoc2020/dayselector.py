@@ -57,6 +57,14 @@ def _day_4(contents: str) -> None:
     print('Solving day4 puzzle')
     print('  Part One: ', solver.part1())
 
+@registerday
+def _day_5(contents: str) -> None:
+    pass
+
+@registerday
+def _day_6(contents: str) -> None:
+    pass
+
 
 def daySelector(day: int, fileContents: str) -> None:
     _dayDict[f'_day_{day}'](fileContents)
