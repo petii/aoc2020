@@ -23,3 +23,6 @@ class Solution:
 
     def part1(self) -> int:
         return len(list(filter(self.checkPassport, self.input)))
+
+    def part2(self):
+        pass
