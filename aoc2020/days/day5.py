@@ -1,4 +1,5 @@
 from typing import List
+from collections import deque
 
 
 def seatId(bsp: str) -> int:
@@ -19,3 +20,11 @@ class Solution:
 
     def part1(self) -> int:
         return max(map(seatId, self.input))
+
+    def part2(self) -> int:
+        ids = set(map(seatId, self.input))
+        deq = deque(ids)
+        deq.rotate(-1)
+        neighbourPairs = zip(ids, deq)
+        neighbours = list(filter(lambda x: x[1] - x[0] > 1, neighbourPairs))[0]
+        return (neighbours[0] + neighbours[1]) // 2

@@ -64,6 +64,7 @@ def _day_5(contents: str) -> None:
     solver = day5.Solution(input)
     print('Solving day5 puzzle')
     print('  Part One: ', solver.part1())
+    print('  Part Two: ', solver.part2())
 
 
 @registerday
