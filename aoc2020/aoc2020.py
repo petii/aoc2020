@@ -10,7 +10,7 @@ class AocArgs(Tap):
     file: Optional[str] = None
 
     def configure(self) -> None:
-        self.add_argument('-d','--day', help='which day [1-24]')
+        self.add_argument('-d', '--day', help='which day [1-24]')
         self.add_argument('-f',
                           '--file',
                           help='input file, defaults to data/day<day>.txt')
@@ -19,18 +19,20 @@ class AocArgs(Tap):
         if self.day != None and self.file == None:
             self.file = f'data/day{self.day}.txt'
 
-def run(day : int, fileName : str) -> int:
+
+def run(day: int, fileName: str) -> int:
     with open(fileName) as file:
         daySelector(day, file.read())
     return 1
+
 
 def main() -> None:
     args = AocArgs().parse_args()
     try:
         if args.day == None:
-            [run(x, f'data/day{x}.txt') for x in range(1,32)]
+            [run(x, f'data/day{x}.txt') for x in range(1, 32)]
         try:
-            run(args.day, args.file) # type: ignore
+            run(args.day, args.file)  # type: ignore
         except FileNotFoundError as e:
             print(e)
 

@@ -1,4 +1,4 @@
-day1input = list(map(int,"1721 979 366 299 675 1456".split(' ')))
+day1input = list(map(int, "1721 979 366 299 675 1456".split(' ')))
 
 day2input = """1-3 a: abcde
 1-3 b: cdefg
