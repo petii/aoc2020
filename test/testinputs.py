@@ -63,3 +63,21 @@ FFFBBBFRRR
 BBFFBBFRLL""".split('\n')
 
 day5pairs = list(zip(day5input, [567, 119, 820]))
+
+day6input = """abc
+
+a
+b
+c
+
+ab
+ac
+
+a
+a
+a
+a
+
+b""".split('\n\n')
+day6anypairs = list(zip([x.split('\n') for x in day6input], [3, 3, 3, 1, 1]))
+day6everypairs = list(zip([x.split('\n') for x in day6input], [3, 0, 1, 1, 1]))

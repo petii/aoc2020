@@ -1,6 +1,6 @@
 import unittest
 
-from aoc2020.days import day1, day2, day3, day4, day5
+from aoc2020.days import day1, day2, day3, day4, day5, day6
 
 from test import testinputs
 
@@ -74,6 +74,26 @@ class TestDay5(unittest.TestCase):
         result = self.day.part1()
         self.assertEqual(expected, result)
 
+class TestDay6(unittest.TestCase):
+    day = day6.Solution(testinputs.day6input)
 
+    def test_summarizeGroupAny(self) -> None:
+        for input, expected in testinputs.day6anypairs:
+            self.assertEqual(expected, day6.summarizeGroupAny(input))
+
+    def test_summarizeGroupEvery(self) -> None:
+        for input, expected in testinputs.day6everypairs:
+            self.assertEqual(expected, day6.summarizeGroupEvery(input))
+
+    def test_pt1(self) -> None:
+        expected = 11
+        result = self.day.part1()
+        self.assertEqual(expected, result)
+    
+    def test_pt2(self) -> None:
+        expected = 6
+        result = self.day.part2()
+        self.assertEqual(expected, result)
+    
 if __name__ == "__main__":
     unittest.main()
