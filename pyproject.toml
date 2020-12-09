@@ -7,10 +7,13 @@ authors = ["Peter Vida <petike997@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 typed-argument-parser = "^1.6.1"
+networkx = "^2.5"
+scipy = "^1.5.4"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.790"
 yapf = "^0.30.0"
+matplotlib = "^3.3.3"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

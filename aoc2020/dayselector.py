@@ -1,7 +1,7 @@
 from pprint import pprint
 from typing import Callable, Dict
 
-from days import day1, day2, day3, day4, day5, day6
+from days import day1, day2, day3, day4, day5, day6, day7
 
 _dayDict: Dict[str, Callable] = {}
 
@@ -74,6 +74,15 @@ def _day_6(contents: str) -> None:
     print('Solving day6 puzzle')
     print('  Part One: ', solver.part1())
     print('  Part Two: ', solver.part2())
+
+
+@registerday
+def _day_7(contents: str) -> None:
+    input = list(filter(lambda x: x != '', contents.split('\n')))
+    solver = day7.Solution(input)
+    print('Solving day7 puzzle')
+    print('  Part One: ', solver.part1())
+    # print('  Part Two: ', solver.part2())
 
 
 def daySelector(day: int, fileContents: str) -> None:
