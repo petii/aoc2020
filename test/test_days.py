@@ -98,12 +98,18 @@ class TestDay6(unittest.TestCase):
 
 
 class TestDay7(unittest.TestCase):
-    day = day7.Solution(testinputs.day7input)
-
     def test_pt1(self) -> None:
+        day = day7.Solution(testinputs.day7input)
         expected = 4
-        result = self.day.part1()
+        result = day.part1()
         self.assertEqual(expected, result)
+
+    def test_pt2(self) -> None:
+        for input, expected in zip(
+            [testinputs.day7input, testinputs.day7input2], [32, 126]):
+            day = day7.Solution(input)
+            result = day.part2()
+            self.assertEqual(expected, result)
 
 
 if __name__ == "__main__":
