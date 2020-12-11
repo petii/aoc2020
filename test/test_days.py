@@ -112,5 +112,17 @@ class TestDay7(unittest.TestCase):
             self.assertEqual(expected, result)
 
 
+class TestDay8(unittest.TestCase):
+    def test_pt1(self) -> None:
+        expected = 5
+        result = day8.part1(testinputs.day8input)
+        self.assertEqual(expected, result)
+
+    def test_pt2(self) -> None:
+        expected = 8
+        result = day8.part2(testinputs.day8input)
+        self.assertEqual(expected, result)
+
+
 if __name__ == "__main__":
     unittest.main()

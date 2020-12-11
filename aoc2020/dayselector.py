@@ -85,5 +85,13 @@ def _day_7(contents: str) -> None:
     print('  Part Two: ', solver.part2())
 
 
+@registerday
+def _day_8(contents: str) -> None:
+    input = list(filter(lambda x: x != '', contents.split('\n')))
+    print('Solving day8 puzzle')
+    print('  Part One: ', day8.part1(input))
+    print('  Part Two: ', day8.part2(input))
+
+
 def daySelector(day: int, fileContents: str) -> None:
     _dayDict[f'_day_{day}'](fileContents)
